@@ -8,5 +8,6 @@ public class MountainSet {
     public static void main(String[] args) throws URISyntaxException {
         String path = MountainSet.class.getResource("FranskeBjerge.csv").toURI().getPath();
         File f =new File(path);
+        System.out.println("hello world");
     }
 }
