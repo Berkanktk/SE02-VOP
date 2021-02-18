@@ -2,7 +2,7 @@ package vop;
 
 /**
  *
- * @author erso 
+ * @author erso
  *  Udleveret driver klasse til opgave 2, VOP eksamen 10 juni 2016
  */
 public class CipherDriver {
@@ -14,19 +14,20 @@ public class CipherDriver {
         CipherInterface cipher;
 
         String message = "Her har vi en Meddelelse, som er hemmelig!";
-        System.out.println("Original: \n" + message);
+        System.out.println("Original Meddelelse: \n" + message);
+        System.out.println(" ");
 
         // Fjern ud-kommenteringen, når AtbashCipher skal testes
-//        cipher = new AtbashCipher();
-//        String enc = cipher.encrypt(message);
-//        System.out.println("Atbash: \n" + enc);
-//        System.out.println(cipher.decrypt(enc));
+        //cipher = new AtbashCipher();
+        //String enc = cipher.encrypt(message);
+        //System.out.println("Krypteret med AtBash Cipher: \n" + enc+ "\n");
+        //System.out.println("Dekrypteret med AtBash Cipher: \n" + (cipher.decrypt(enc)));
 
         // Fjern ud-kommenteringen, når CeasarCipher skal testes
-//        cipher = new CeasarCipher(13);
-//        enc = cipher.encrypt(message);
-//        System.out.println("Ceasar 13: \n" + enc);
-//        System.out.println(cipher.decrypt(enc));
+        cipher = new CaesarCipher(13);
+        String enc = cipher.encrypt(message);
+        System.out.println("Ceasar 13: \n" + enc);
+        System.out.println(cipher.decrypt(enc));
 
     }
 
