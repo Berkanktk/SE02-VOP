@@ -35,7 +35,14 @@ public class Person implements Comparable<Person>{
     // Hvis det stadig er ens sorteres på fødselsdag.
     @Override
     public int compareTo(Person o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int r = this.lName.compareTo(o.lName);
+        if (r == 0) {
+            r = this.fName.compareTo(o.fName);
+        }
+        if (r == 0) {
+            r = this.birthDay.compareTo(o.birthDay);
+        }
+        return r;
     }
 
     public static void main(String[] args) {
@@ -46,27 +53,31 @@ public class Person implements Comparable<Person>{
         list.add(new Person("A", "BB", 1980, 3, 10, 1.67));
         list.add(new Person("A", "BB", 1980, 3, 1, 1.66));
         list.add(new Person("A", "CC", 1980, 3, 1, 1.65));
-        
+
         System.out.println(list);
-        
+
         Collections.sort(list);
         System.out.println("\nsorted:\n" +list);
-        
+
         Comparator<Person> comp = new Comparator<Person>(){
             // Opgave 1B:
             // Comparatoren skal sorterer på heigth
             @Override
             public int compare(Person o1, Person o2) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                int i = Double.compare(o1.heigth, o2.heigth);
+                if (i == 0) {
+                    i = o1.compareTo(o2);
+                }
+                return i;
             }
-        
+
         };
-        
+
         // Fjern udkommenteringen, når Comparatoren er programmeret:
-//        Collections.sort(list,comp);
-//        System.out.println("\nsorted:\n" +list);
-        
+        Collections.sort(list,comp);
+        System.out.println("\nsorted:\n" +list);
+
     }
 
-    
+
 }
