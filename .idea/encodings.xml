@@ -34,5 +34,9 @@
     <file url="file://$PROJECT_DIR$/Lesson3Preparation/Compare/Solution/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Lesson3Preparation/Compare/Solution/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Lesson4/SerialIOAndThreadedTCP/Exercise/src/main/java" charset="UTF-8" />
+<<<<<<< HEAD
+=======
+    <file url="file://$PROJECT_DIR$/Lesson4/SerialIOAndThreadedTCP/Solution/src/main/java" charset="UTF-8" />
+>>>>>>> f430773c859793fd99ba9823d074d5d9a8d245e7
   </component>
 </project>
