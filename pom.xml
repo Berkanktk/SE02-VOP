@@ -24,9 +24,6 @@
         <module>Lesson3/Mountains/Exercise</module>
         <module>Lesson3/Mountains/Solution</module>
         <module>Lesson4/SerialIOAndThreadedTCP/Exercise</module>
-<<<<<<< HEAD
-=======
         <module>Lesson4/SerialIOAndThreadedTCP/Solution</module>
->>>>>>> f430773c859793fd99ba9823d074d5d9a8d245e7
     </modules>
 </project>

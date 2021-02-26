@@ -1,7 +1,6 @@
 package vop.serialio;
 
 import java.io.Serializable;
-
 /**
  * Serialized class for data on endangered species.
  */
@@ -17,7 +16,7 @@ public class Species implements Serializable {
 
 
     public Species(String initialName, int initialPopulation,
-                   double initialGrowthRate) {
+           double initialGrowthRate) {
         name = initialName;
         if (initialPopulation >= 0)
             population = initialPopulation;

@@ -25,6 +25,7 @@ public class WriteSpeciesFileAppend {
     public static void main(String[] args) {
         String fileName = getFileName("Enter output file name.");
         File file = new File(fileName);
+
         try (ObjectOutputStream outputStream = 
                 file.exists() ? 
                 new ObjectOutputStream(new FileOutputStream(file, true)) {
