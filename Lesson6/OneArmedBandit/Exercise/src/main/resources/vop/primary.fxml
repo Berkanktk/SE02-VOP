@@ -8,14 +8,14 @@
 
 <AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vop.PrimaryController2">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="32.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="432.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="106.0" layoutY="231.0" mnemonicParsing="false" onAction="#stop1" text="Stop 1" />
-      <Button layoutX="306.0" layoutY="231.0" mnemonicParsing="false" onAction="#stop2" text="Stop 2" />
-      <Button layoutX="506.0" layoutY="231.0" mnemonicParsing="false" onAction="#stop3" text="Stop 3" />
-      <Button layoutX="306.0" layoutY="304.0" mnemonicParsing="false" onAction="#start" text="Start" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="373.0" prefHeight="55.0" prefWidth="356.0" text="Start">
+      <ImageView fx:id="img1" fitHeight="150.0" fitWidth="200.0" layoutX="32.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img2" fitHeight="150.0" fitWidth="200.0" layoutX="232.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img3" fitHeight="150.0" fitWidth="200.0" layoutX="432.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="stopSpin1" layoutX="106.0" layoutY="231.0" mnemonicParsing="false" onAction="#spinHandler" text="Stop 1" />
+      <Button fx:id="stopSpin2" layoutX="306.0" layoutY="231.0" mnemonicParsing="false" onAction="#spinHandler" text="Stop 2" />
+      <Button fx:id="stopSpin3" layoutX="506.0" layoutY="231.0" mnemonicParsing="false" onAction="#spinHandler" text="Stop 3" />
+      <Button fx:id="startSpinButton" layoutX="306.0" layoutY="304.0" mnemonicParsing="false" onAction="#spinHandler" text="Start" />
+      <Label fx:id="winLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="154.0" layoutY="373.0" prefHeight="55.0" prefWidth="356.0" text="Start">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>

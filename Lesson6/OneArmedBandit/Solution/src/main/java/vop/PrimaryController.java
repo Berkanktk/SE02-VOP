@@ -43,29 +43,35 @@ public class PrimaryController implements Initializable {
     @FXML
     private void spinHandler(ActionEvent event) {
         if (event.getSource() == startSpinnersButton) {
+
             BanditRunnable b1 = new BanditRunnable(1, 100, spin1);
             t1 = new Thread(b1);
             t1.setDaemon(true);
             t1.start();
             stopSpinButton_1.setDisable(false);
+
             BanditRunnable b2 = new BanditRunnable(5, 140, spin2);
             t2 = new Thread(b2);
             t2.setDaemon(true);
             t2.start();
             stopSpinButton_2.setDisable(false);
+
             BanditRunnable b3 = new BanditRunnable(8, 120, spin3);
             t3 = new Thread(b3);
             t3.setDaemon(true);
             t3.start();
             stopSpinButton_3.setDisable(false);
+
             startSpinnersButton.setDisable(true);
             winningLabel.setText("Running");
+
         } else if (event.getSource() == stopSpinButton_1) {
             t1.interrupt();
             stopSpinButton_1.setDisable(true);
+
         } else if (event.getSource() == stopSpinButton_2) {
             t2.interrupt();
-            stopSpinButton_2.setDisable(true);
+
         } else if (event.getSource() == stopSpinButton_3) {
             t3.interrupt();
             stopSpinButton_3.setDisable(true);
