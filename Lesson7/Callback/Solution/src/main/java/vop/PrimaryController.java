@@ -58,7 +58,7 @@ public class PrimaryController implements Initializable, CallBackInterface {
             @Override
             public void run() {
                 textArea.appendText(message + "\n");
-                if (!facade.isAlive()){
+                if (!facade.isAlive()) {
                     stopButton.fire();
                 }
             }
@@ -74,6 +74,7 @@ public class PrimaryController implements Initializable, CallBackInterface {
                 die2view.setImage(new Image(i2.toURI().toString()));
             }
         });
+
     }
 
 

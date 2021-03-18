@@ -47,7 +47,6 @@ public class CircularBuffer {
     }
 
 
-
     public String toString() {
         return "Buff: " + Arrays.toString(buffer);
     }
