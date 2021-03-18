@@ -37,6 +37,8 @@ public class PrimaryController implements Initializable, CallBackInterface {
 
     @FXML
     private void buttonAction(ActionEvent event) {
+        FacadeWithCallback fwc;
+
         if (event.getSource() == startButton) {
             // Initialize the facade and start it.
             // handle access to the buttons
