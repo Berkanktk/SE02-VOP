@@ -11,6 +11,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  *
  * @author fsan
@@ -36,15 +42,26 @@ public class FacadeWithCallbackTest {
 
     @Before
     public void setUp() {
-//        TODO
 //        Instantiate your CallBackInterface
-//        Instantiate and start your Facade Thread
+            soutCallBack = new CallBackInterface() {
+                @Override
+                public void updateMessage(String message) {
+
+                }
+
+                @Override
+                public void updateImages(File i1, File i2) {
+
+                }
+            };
+        //        Instantiate and start your Facade Thread
+        facade = new FacadeWithCallback(soutCallBack, FacadeWithCallback.class.getResource("").getPath());
+            facade.start();
     }
 
     @After
     public void tearDown() {
-//        TODO
-//        Interrupt your facade Thread
+    facade.interrupt();
     }
 
     /**
@@ -53,9 +70,9 @@ public class FacadeWithCallbackTest {
 
     @Test
     public void testRun() {
-//        TODO
-//        Test the run() method
-//        Assert if the dice.getDie1() and dice.getDie2() are equal to integer 6
+        dice = facade.getDice();
+        assertEquals(6, dice.getDie1());
+        assertEquals(6, dice.getDie2());
     }
 
 }

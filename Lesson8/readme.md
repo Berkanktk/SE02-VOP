@@ -12,7 +12,7 @@
 
 Package binary_search_test contains BinarySearch in both a recursive- and an iterative- version. Write Junit methods to
 test them both:
- - `shouldFindIndexOfNumber()` // Find present number - `shouldReturnNegativeInsertionPointWhenNotFound()` //Find not-present
-number
+ - `shouldFindIndexOfNumber()` // Find present number 
+ - `shouldReturnNegativeInsertionPointWhenNotFound()` //Find not-present number
 - Use this array as test input:
 `private static final int[] FIBOS = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};`

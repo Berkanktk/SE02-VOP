@@ -73,11 +73,11 @@ public class FacadeWithCallbackTest {
         dice = facade.getDice();
         while (!dice.equalsMax()) {
             try {
-                Thread.sleep(10);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(FacadeWithCallbackTest.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Thread.sleep(10);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FacadeWithCallbackTest.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
 
         assertEquals(6, dice.getDie1());
         assertEquals(6, dice.getDie2());
