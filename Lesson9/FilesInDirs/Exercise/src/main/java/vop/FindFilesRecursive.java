@@ -15,7 +15,16 @@ public class FindFilesRecursive {
     // Exercise: If a file is a directory: Call all files recursively,
     // else print full path to the file. Count both dirs and atomic files.
     private void findFiles(File file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (file.isDirectory()) {
+            noDirs++;
+            File[] files = file.listFiles(); // All files and subdirectories
+            for (File f : files) {
+                findFiles(f);
+            }
+        } else { // Base case
+            noFiles++;
+            System.out.println(file.getAbsolutePath());
+        }
     }
 
 
