@@ -42,5 +42,6 @@
         <module>Lesson9/BinarySearchExample</module>
         <module>Lesson9/FilesInDirs/Exercise</module>
         <module>Lesson9/FilesInDirs/Solution</module>
+        <module>Lesson11/MatchingBrackets/Exercise</module>
     </modules>
 </project>
