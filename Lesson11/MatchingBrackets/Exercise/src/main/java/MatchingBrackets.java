@@ -10,12 +10,10 @@ public class MatchingBrackets {
         Stack<Character> stack = new Stack<>();
 
         // When you see an opening parenthesis, push it on the stack.
-        for (int i = 0; i < expression.length(); i++)
-        {
+        for (int i = 0; i < expression.length(); i++) {
             char x = expression.charAt(i);
 
-            if (x == '(' || x == '[' || x == '{')
-            {
+            if (x == '(' || x == '[' || x == '{') {
                 // Push the element in the stack
                 stack.push(x);
                 continue;
@@ -24,7 +22,9 @@ public class MatchingBrackets {
             // When you see a closing parenthesis, pop the stack.
             if (stack.isEmpty())
                 return false;
+
             char check;
+
             switch (x) {
                 case ')':
                     check = stack.pop();
