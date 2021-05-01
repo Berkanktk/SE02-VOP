@@ -19,7 +19,7 @@ parentheses onto a `Stack<Character>`:
 - If at the end the stack is empty - the parentheses are balanced.
 - Else:    The parentheses are not balanced.
 
-### Task 2
+### Task 2 (NOT DONE)
 
 - Use a `List<Character>` instead of a `Stack`, implement your own version of `push()` and `pop()` - remember that values should be inserted and retrieved in a LIFO (Last in, first out) manner. 
     - You are free to create a new class for this purpose, if you don't want to overwrite the existing one.
