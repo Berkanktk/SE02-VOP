@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vop;
+package vop.Ciphers;
+
+import vop.Backbone.AbstractCipher;
 
 /**
  *
@@ -50,5 +52,4 @@ public class CeasarCipher extends AbstractCipher {
         }
         return result;
     }
-
 }

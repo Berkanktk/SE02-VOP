@@ -5,36 +5,31 @@
  */
 package vop;
 
+import vop.Backbone.CipherInterface;
+import vop.Ciphers.AtbashCipher;
+import vop.Ciphers.CeasarCipher;
 
-
-/**
- *
- * @author erso
- */
 public class CipherDriver {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
-        CipherInterface cipher; 
+        CipherInterface cipher;
         
         String message = "Her har vi en Meddelelse, som er hemmelig!" ;
         System.out.println("Original: \n" + message);
-        
+
+        System.out.println("");
+
         cipher = new AtbashCipher();
         String enc = cipher.encrypt(message);
         System.out.println("Atbash: \n" + enc);
         System.out.println(cipher.decrypt(enc));
-        
+
+        System.out.println("");
+
         cipher = new CeasarCipher(13);
         enc = cipher.encrypt(message);
         System.out.println("Ceasar 13: \n" + enc);
         System.out.println(cipher.decrypt(enc));
-        
-        
-        
     }
-    
 }

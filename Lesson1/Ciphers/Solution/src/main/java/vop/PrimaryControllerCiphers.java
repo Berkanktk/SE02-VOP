@@ -4,11 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import vop.Backbone.CipherInterface;
+import vop.Ciphers.AtbashCipher;
+import vop.Ciphers.CeasarCipher;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PrimaryController implements Initializable {
+public class PrimaryControllerCiphers implements Initializable {
 
     @FXML
     private TextField originalText;
@@ -32,7 +35,6 @@ public class PrimaryController implements Initializable {
     private TextField ceasarText;
 
     private CipherInterface crypter;
-
 
     @FXML
     private void cryptHandler(ActionEvent event) {

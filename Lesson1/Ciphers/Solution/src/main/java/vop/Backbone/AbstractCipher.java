@@ -3,12 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vop;
+package vop.Backbone;
 
-/**
- *
- * @author erso
- */
 public abstract class AbstractCipher implements CipherInterface {
 
     protected int findCharIndex(char ch) {
@@ -19,5 +15,4 @@ public abstract class AbstractCipher implements CipherInterface {
         }
         return -1;  //not found
     }
-
 }

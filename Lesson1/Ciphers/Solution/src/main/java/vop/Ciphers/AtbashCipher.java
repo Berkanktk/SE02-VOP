@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vop;
+package vop.Ciphers;
+
+import vop.Backbone.AbstractCipher;
 
 /**
  *
@@ -14,8 +16,7 @@ public class AtbashCipher extends AbstractCipher {
     @Override
     public String encrypt(String original) {
         StringBuilder sb = new StringBuilder();
-        
-        
+
         int index;
         for(char c : original.toCharArray()){
 
@@ -28,13 +29,10 @@ public class AtbashCipher extends AbstractCipher {
             }
         }
         return sb.toString();
-
     }
 
     @Override
     public String decrypt(String encrypted) {
         return encrypt(encrypted);
     }
-
-
 }
