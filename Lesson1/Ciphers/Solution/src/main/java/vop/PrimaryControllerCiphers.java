@@ -14,15 +14,9 @@ import java.util.ResourceBundle;
 public class PrimaryControllerCiphers implements Initializable {
 
     @FXML
-    private TextField originalText;
+    private Button encryptButton, decryptButton;
     @FXML
-    private Button encryptButton;
-    @FXML
-    private Button decryptButton;
-    @FXML
-    private TextField encryptedText;
-    @FXML
-    private TextField decryptedText;
+    private TextField encryptedText, decryptedText, originalText, ceasarText;
     @FXML
     private RadioButton atbashRadio;
     @FXML
@@ -31,8 +25,6 @@ public class PrimaryControllerCiphers implements Initializable {
     private RadioButton ceasarRadio;
     @FXML
     private Spinner<Integer> ceasarSpinner;
-    @FXML
-    private TextField ceasarText;
 
     private CipherInterface crypter;
 
@@ -57,6 +49,7 @@ public class PrimaryControllerCiphers implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ceasarSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, CipherInterface.ALPHABETH.length - 1, CipherInterface.ALPHABETH.length/ 2));
+        ceasarSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory
+                (0, CipherInterface.ALPHABETH.length - 1, CipherInterface.ALPHABETH.length/ 2));
     }
 }
