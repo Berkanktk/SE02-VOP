@@ -1,23 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package vop;
+
+import vop.Backbone.ShapeInterface;
+import vop.Figures.Circle;
+import vop.Figures.Rectangle;
+import vop.Figures.Square;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author erso
- */
 public class ShapeDriver {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         List<ShapeInterface> list = new ArrayList<>();
         list.add(new Circle(3.4));
@@ -27,5 +19,4 @@ public class ShapeDriver {
         
         System.out.println("Shapes: " + list);
     }
-    
 }

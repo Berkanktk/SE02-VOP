@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vop;
+package vop.Backbone;
 
+import vop.Figures.Circle;
+import vop.Ellipse;
+import vop.Figures.Rectangle;
+import vop.Figures.Square;
 
-/**
- *
- * @author erso
- */
 public class ShapeFacade {
 
-    //Singleton Stufff:
+    //Singleton Stuff:
     private static ShapeFacade instance = null;
 
     public static ShapeFacade getInstance() {
@@ -24,6 +24,7 @@ public class ShapeFacade {
 
     private ShapeFacade() {
     }
+
     //---------------------------
 
     public enum SHAPES{CIRCLE, ELLIPSE, RECTANGLE, SQUERE};
@@ -48,7 +49,4 @@ public class ShapeFacade {
         }
         return currentShape.toString();
     }
-    
- 
-
 }

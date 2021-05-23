@@ -1,6 +1,5 @@
 package vop;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,8 +7,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import vop.Backbone.ShapeFacade;
 
-public class PrimaryController implements Initializable {
+public class PrimaryControllerPolymorphism implements Initializable {
 
     @FXML
     private RadioButton ellipseRadio;
@@ -40,22 +40,25 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        String result = "";
-        ShapeFacade.SHAPES shape = (ShapeFacade.SHAPES) ShapeToggle.getSelectedToggle().getUserData();
-        double p1 = Double.parseDouble(para1.getText());
-        if (shape == ShapeFacade.SHAPES.CIRCLE || shape == ShapeFacade.SHAPES.SQUERE) {
+        try {
+            String result = "";
+            ShapeFacade.SHAPES shape = (ShapeFacade.SHAPES) ShapeToggle.getSelectedToggle().getUserData();
+            double p1 = Double.parseDouble(para1.getText());
+            if (shape == ShapeFacade.SHAPES.CIRCLE || shape == ShapeFacade.SHAPES.SQUERE) {
 
-            result = ShapeFacade.getInstance().getShapeInfo(shape, p1);
-        } else {
-            double p2 = Double.parseDouble(para2.getText());
-            result = ShapeFacade.getInstance().getShapeInfo(shape, p1, p2);
+                result = ShapeFacade.getInstance().getShapeInfo(shape, p1);
+            } else {
+                double p2 = Double.parseDouble(para2.getText());
+                result = ShapeFacade.getInstance().getShapeInfo(shape, p1, p2);
+            }
+            resultArea.appendText(result + "\n");
+        } catch (NumberFormatException e) {
+            System.out.println("Fejl");
+            resultArea.setText("Husk at udfylde begge parametre, hvis nødvendigt.");
         }
-
-        resultArea.appendText(result + "\n");
-
     }
 
-    @FXML
+        @FXML
     private void handleRadio(ActionEvent event) {
         ShapeFacade.SHAPES shape = (ShapeFacade.SHAPES) ShapeToggle.getSelectedToggle().getUserData();
         if(shape == ShapeFacade.SHAPES.CIRCLE || shape == ShapeFacade.SHAPES.SQUERE){
@@ -63,5 +66,9 @@ public class PrimaryController implements Initializable {
         } else{
             para2.setVisible(true);
         }
+    }
+
+    public void clearBtn(ActionEvent actionEvent) {
+        resultArea.clear();
     }
 }

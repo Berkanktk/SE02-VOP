@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vop;
+package vop.Figures;
 
-/**
- *
- * @author erso
- */
-public class Rectangle extends AbstractShape{
+import vop.Backbone.AbstractShape;
+
+public class Rectangle extends AbstractShape {
 
     private double l1;
     private double l2;
@@ -33,6 +31,4 @@ public class Rectangle extends AbstractShape{
     public double getCircumference() {
         return 2 * (l1 + l2);
     }
-    
-
 }

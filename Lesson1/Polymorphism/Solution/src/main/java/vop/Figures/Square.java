@@ -4,16 +4,11 @@
  * and open the template in the editor.
  */
 
-package vop;
+package vop.Figures;
 
-/**
- *
- * @author erso
- */
-public class Circle extends Ellipse{
+public class Square extends Rectangle{
 
-    public Circle(double r) {
-        super(r, r);
+    public Square(double length) {
+        super(length, length);
     }
-
 }
