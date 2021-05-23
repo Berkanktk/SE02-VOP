@@ -14,24 +14,17 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
-public class PrimaryController implements Initializable {
+public class PrimaryControllerSearch implements Initializable {
 
     @FXML
-    private TextField searchField;
-    @FXML
-    private TextField replaceField;
+    private TextField searchField, replaceField;
     @FXML
     private TextArea textArea;
     @FXML
-    private Button replaceAllButton;
-    @FXML
-    private Button openFileButton;
-    @FXML
-    private Button saveAsButton;
+    private Button replaceAllButton, openFileButton, saveAsButton;
 
     private FileChooser fileChooser;
     private IoFacade facade;
-
 
     private void switchToSecondary() throws IOException {
         App.setRoot("secondary");
@@ -64,14 +57,13 @@ public class PrimaryController implements Initializable {
         if (outFile == null)
             return;
 
-
         facade.writeFile(textArea.getText(), outFile);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("."));// Working directory
+        fileChooser.setInitialDirectory(new File(".")); // Working directory
         facade = new IoFacade();
     }
 }
