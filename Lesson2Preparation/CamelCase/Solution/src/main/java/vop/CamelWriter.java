@@ -8,10 +8,8 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author fsan
- */
+//--------------------------------- VIRKER KUN I EN DIRECTORY UDEN SPACES OG SPECIELLE TEGN ---------------------------
+
 public class CamelWriter {
 
     private File inFile;
@@ -22,49 +20,37 @@ public class CamelWriter {
     }
 
     public void readLines() {
-        Scanner scan = null;
-        try {
-            scan = new Scanner(inFile);
+        try (Scanner scan = new Scanner(inFile)) { // Benyt en Scanner til at læse inFile én linje ad gangen
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 if (line.length() == 0) {
                     continue;
                 }
-                convert2camel(line);
+                convert2camel(line); // Kald convert2camel med hver linje.
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(CamelWriter.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            scan.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-
-        // Benyt en Scanner til at læse inFile én linje ad gangen
-        // Kald convert2camel med hver linje.
     }
 
     private void convert2camel(String line) {
         line = line.toLowerCase();
-        String[] words = line.split(" ");
-        String camelLine = words[0].toLowerCase();
-        for (int i = 1; i < words.length; i++) {
+        String[] words = line.split(" "); // Split line til et String[] af de enkelte ord i linjen
+        String camelLine = words[0].toLowerCase(); // Konverter 1. ord til små og resten til stort begyndelsesbogstav
+        for (int i = 1; i < words.length; i++) { // Sammensæt ordene til ét langt ord og udskriv.
             camelLine += words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
         }
-//        System.out.println(camelLine);
         printToFile(camelLine);
-        // Split line til et String[] af de enkelte ord i linjen
-        // Konverter 1. ord til små og resten til stort begyndelsesbogstav
-        // Sammensæt ordene til ét langt ord og udskriv.
     }
 
     private void printToFile(String line) {
-        File f = new File("CamelOut.txt");
+        File f = new File("CamelOut2.txt");
         try (FileWriter fw = new FileWriter(f, true)) {
             fw.append(line);
             fw.append("\n");
         } catch (IOException ex) {
             Logger.getLogger(CamelWriter.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public static void main(String[] args) {
@@ -72,5 +58,4 @@ public class CamelWriter {
         CamelWriter cw = new CamelWriter(fName);
         cw.readLines();
     }
-
 }

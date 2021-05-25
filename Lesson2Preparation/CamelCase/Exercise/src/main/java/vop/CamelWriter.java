@@ -1,35 +1,57 @@
 package vop;
 
-import java.io.File;
+import java.io.*;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
 
-/**
- * @author erso
- */
 public class CamelWriter {
 
     private File inFile;
 
     public CamelWriter(String fName) {
-        //Initialiser inFile med fName
+        inFile = new File(getClass().getClassLoader().getResource(fName).getFile());
+        System.out.println(inFile.getName());
     }
 
     public void readLines() {
-        // Benyt en Scanner til at læse inFile én linje ad gangen
-        // Kald convert2camel med hver linje.
+        try (Scanner scan = new Scanner(inFile)) { // Benyt en Scanner til at læse inFile én linje ad gangen
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                if (line.length() == 0) {
+                    continue;
+                }
+                convert2camel(line); // Kald convert2camel med hver linje.
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void convert2camel(String line) {
-        // Split line til et String[] af de enkelte ord i linjen
-        // Konverter 1. ord til små og resten til stort begyndelsesbogstav
-        // Sammensæt ordene til ét langt ord og udskriv.
+        line = line.toLowerCase();
+        String[] words = line.split(" "); // Split line til et String[] af de enkelte ord i linjen
+        String camelLine = words[0].toLowerCase(); // Konverter 1. ord til små og resten til stort begyndelsesbogstav
+        for (int i = 1; i < words.length; i++) { // Sammensæt ordene til ét langt ord og udskriv.
+            camelLine += words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
+        }
+        printToFile(camelLine);
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    private void printToFile(String line) {
+        File f = new File("CamelOut.txt");
+        try (FileWriter fw = new FileWriter(f, true)) {
+            fw.append(line);
+            fw.append("\n");
+        } catch (IOException ex) {
+            Logger.getLogger(CamelWriter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public static void main(String[] args) {
-        CamelWriter cw = new CamelWriter("DryLips.txt");
+        String fName = "MaryAnn.txt";
+        CamelWriter cw = new CamelWriter(fName);
         cw.readLines();
     }
-
 }
