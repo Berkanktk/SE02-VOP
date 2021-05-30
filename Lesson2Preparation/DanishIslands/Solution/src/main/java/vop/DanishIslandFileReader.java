@@ -10,9 +10,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-/**
- * @author fsan
- */
+//--------------------------------- VIRKER KUN I EN DIRECTORY UDEN SPACES OG SPECIELLE TEGN ---------------------------
+
 public class DanishIslandFileReader {
 
     private File inFile;
@@ -32,38 +31,31 @@ public class DanishIslandFileReader {
         double area;
         int addr;
         int adkm;
+
         try (Scanner scan = new Scanner(inFile)) {
             while (scan.hasNextLine()) {
                 line = scan.nextLine();
-                tokens = line.split(" ");
-                name = tokens[0];
+                tokens = line.split(" "); // Læs filen en linje ad gangen. Split linjen på mellemrums tegnet.
+
+                name = tokens[0]; // Konverter de enkelte værdier til typerne der skal bruges i DanishIsland.
+
                 NumberFormat format = NumberFormat.getInstance(Locale.GERMAN);
                 circ = format.parse(tokens[1]).doubleValue();
                 area = format.parse(tokens[2]).doubleValue();
                 addr = format.parse(tokens[3]).intValue();
                 adkm = format.parse(tokens[4]).intValue();
-                islandList.add(new DanishIsland(name, circ, area, addr, adkm));
+                islandList.add(new DanishIsland(name, circ, area, addr, adkm)); // Opret et objekt for hver linje og tilføj det til listen.
             }
-        } catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException ex) { // Vær omhyggelig med at fange exceptions og få lukket Scanner og fil
             ex.printStackTrace();
         } catch (NumberFormatException | ParseException ex) {
             System.err.println("NumberFormatException in " + name + "\n" + ex.getMessage());
         }
-
-        // OPGAVEN:
-        // Laes filen en linje ad gangen. Split linjen paa mellemrums tegnet.
-        // Konverter de enkelte vaerdier til typerne der skal bruges i DanishIsland.
-        // Opret et objekt for hver linje og tilfoej det til listen.
-        // Vaer omhyggelig med at fange exceptions og faa lukke Scanner og fil
     }
 
     public List<?> getList() {
         return islandList;
     }
-
-    /**
-     * @param args the command line arguments
-     */
 
     public static void main(String[] args) {
         System.out.println(DanishIslandFileReader.class.getClassLoader().getResource("Islands_komma.txt"));
@@ -72,7 +64,5 @@ public class DanishIslandFileReader {
         fr.readFile();
 
         System.out.println("Result:\n" + fr.getList());
-
     }
-
 }

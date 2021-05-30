@@ -1,6 +1,5 @@
 package vop;
 
-
 public class DanishIsland {
 
     private String name;
@@ -19,26 +18,6 @@ public class DanishIsland {
         this.addrPerKm2 = addrPerKm2;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public double getCircumference() {
-        return circumference;
-    }
-
-    public double getArea() {
-        return area;
-    }
-
-    public int getAddresses() {
-        return addresses;
-    }
-
-    public int getAddrPerKm2() {
-        return addrPerKm2;
-    }
-
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
@@ -54,5 +33,4 @@ public class DanishIsland {
         builder.append("\n");
         return builder.toString();
     }
-
 }
