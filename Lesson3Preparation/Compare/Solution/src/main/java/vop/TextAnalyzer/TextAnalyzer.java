@@ -17,9 +17,7 @@ public class TextAnalyzer {
 
     // Opgave 2A
     // Parameteren sorted afgør om der skal benyttes et sorteret Set
-    //
     public Set<String> findUniqueWords(boolean sorted) {
-        // ternary operator (mere info: https://www.baeldung.com/java-ternary-operator)
         Set<String> set = sorted ? new TreeSet<>() : new HashSet<>();
 
         try (Scanner scanner = new Scanner(file)) {
@@ -39,6 +37,7 @@ public class TextAnalyzer {
         try (Scanner scanner = new Scanner(file)) {
             String word;
             int val;
+
             while (scanner.hasNext()) {
                 val = 1;
                 word = clean(scanner.next());
@@ -46,24 +45,22 @@ public class TextAnalyzer {
                 if (map.containsKey(word)) {
                     val += map.get(word);
                 }
-
                 map.put(word, val);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         return map;
     }
 
     // Opgave 2C:     Udvidelse af P15.1
-    //
     public Map<Integer, Set<String>> lengthOfWords(boolean sorted) {
         Map<Integer, Set<String>> mapOfSets = sorted ? new TreeMap<>() : new HashMap<>();
 
         try (Scanner scanner = new Scanner(file)) {
             String word;
             int length;
+
             while (scanner.hasNext()) {
                 word = clean(scanner.next());
                 length = word.length();
@@ -80,15 +77,13 @@ public class TextAnalyzer {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         return mapOfSets;
-
     }
 
-    // Denne metode forsøger at fjerne alt 'snavs' fra en String,
-    // så kun bogstaver bevares og store gøres til små
+    // Denne metode forsøger at fjerne alt 'snavs' fra en String, så kun bogstaver bevares og store gøres til små
     private String clean(String s) {
         String r = "";
+
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isLetter(c)) {
@@ -98,13 +93,11 @@ public class TextAnalyzer {
         return r.toLowerCase();
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) throws URISyntaxException {
 
         TextAnalyzer ta = new TextAnalyzer("alice30.txt");
         ta.countWords(false);
+
         // Opgave 2A. Find alle unikke ord i filen
         Set<String> set = ta.findUniqueWords(true);
         System.out.println(set);
@@ -122,5 +115,4 @@ public class TextAnalyzer {
 		Map<Integer, Set<String>> map2 = ta.lengthOfWords(true);
 		System.out.println(map2);
     }
-
 }

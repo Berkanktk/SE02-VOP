@@ -12,13 +12,12 @@ import java.util.Set;
 public class KeywordCounter {
     public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter a Java source file: ");//"CountKeywords.java"
+        System.out.println("Enter a Java source file: "); //"CountKeywords.java"
         String filename = input.nextLine();
 
         File file = new File(filename);
         if (file.exists()) {
-            System.out.println("The number of keywords in " + filename
-                    + " is " + countKeywords(file));
+            System.out.println("The number of keywords in " + filename + " is " + countKeywords(file));
         } else {
             System.out.println("File " + filename + " does not exist");
         }
@@ -37,8 +36,7 @@ public class KeywordCounter {
                 "throw", "throws", "transient", "try", "void", "volatile",
                 "while", "true", "false", "null"};
 
-        Set<String> keywordSet =
-                new HashSet<>(Arrays.asList(keywordString));
+        Set<String> keywordSet = new HashSet<>(Arrays.asList(keywordString));
         int count = 0;
 
         Scanner input = new Scanner(file);
@@ -48,7 +46,6 @@ public class KeywordCounter {
             if (keywordSet.contains(word))
                 count++;
         }
-
         return count;
     }
 }

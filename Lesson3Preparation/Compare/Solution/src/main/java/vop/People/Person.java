@@ -8,9 +8,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-/**
- * @author erso
- */
 public class Person implements Comparable<Person> {
     private String fName;
     private String lName;
@@ -55,7 +52,7 @@ public class Person implements Comparable<Person> {
         Collections.sort(list);
         System.out.println("\nsorted:\n" + list);
 
-        Comparator<Person> comp = new Comparator<Person>() {
+        Comparator<Person> comp = new Comparator<Person>() { //anonymous inner class in the main()-method of Person
             @Override
             public int compare(Person o1, Person o2) {
                 int i = Double.compare(o1.heigth, o2.heigth);
@@ -67,24 +64,6 @@ public class Person implements Comparable<Person> {
         };
 
         list.sort(comp);
-
-        // region Alternative metoder ovenstående kan skrives på
-        // Lambda / Anonymous function:
-        Comparator<Person> compLambda = (o1, o2) -> {
-            int i = Double.compare(o1.heigth, o2.heigth);
-            if (i == 0) {
-                i = o1.compareTo(o2);
-            }
-            return i;
-        };
-
-        // Lambda + comparingDouble
-        Comparator<Person> compFunction = Comparator.comparingDouble((Person o) -> o.heigth).thenComparing(o -> o);
-        // endregion
-
         System.out.println("\nsorted:\n" + list);
-
     }
-
-
 }
