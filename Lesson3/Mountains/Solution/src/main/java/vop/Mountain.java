@@ -11,9 +11,7 @@ public class Mountain implements Comparable<Mountain> {
     private String longitude;
     private String range;
 
-    public Mountain(String name, String height, String prominence, String latitude,
-                    String longitude, String range) {
-
+    public Mountain(String name, String height, String prominence, String latitude, String longitude, String range) {
         this.name = name;
         this.height = Integer.parseInt(height);
         this.prominence = Integer.parseInt(prominence);
@@ -24,14 +22,11 @@ public class Mountain implements Comparable<Mountain> {
 
     @Override
     public String toString() {
-        return name + " h=" + height
-                + ", pro=" + prominence + ", lat=" + latitude
-                + ", lon=" + longitude + ", ran=" + range + "\n";
+        return name + " h=" + height + ", pro=" + prominence + ", lat=" + latitude + ", lon=" + longitude + ", ran=" + range + "\n";
     }
 
     @Override
     public int compareTo(Mountain o) {
-//		int i = this.height - o.height;
         int i = o.prominence - this.prominence;
         if (i == 0) {
             i = o.height - this.height;
@@ -43,9 +38,6 @@ public class Mountain implements Comparable<Mountain> {
         return range;
     }
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
         // Til test af Mountain-klassen
 
@@ -68,8 +60,5 @@ public class Mountain implements Comparable<Mountain> {
         System.out.println("Sorteret: ");
         Arrays.sort(testArray);
         System.out.println(Arrays.toString(testArray));
-
     }
-
-
 }
