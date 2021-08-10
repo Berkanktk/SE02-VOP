@@ -5,8 +5,7 @@ package laundry_facade;
  * Interface til opg 3.
  * @author erso
  */
-public interface LaundryMachine
-{
+public interface LaundryMachine {
 
     String getModel();
 

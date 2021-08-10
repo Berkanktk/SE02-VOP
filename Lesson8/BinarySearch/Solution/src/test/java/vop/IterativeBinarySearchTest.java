@@ -1,16 +1,11 @@
 package vop;
 
 import org.junit.*;
-
 import java.util.Arrays;
-
 import static org.junit.Assert.*;
 
 public class IterativeBinarySearchTest {
-
-    private static final int[] FIBOS
-            = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
-
+    private static final int[] FIBOS = {1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
 
     public IterativeBinarySearchTest() {
     }
@@ -52,5 +47,4 @@ public class IterativeBinarySearchTest {
         assertEquals(-1, Arrays.binarySearch(FIBOS, 0));
         assertEquals(-5, Arrays.binarySearch(FIBOS, 4));
     }
-
 }

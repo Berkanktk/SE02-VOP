@@ -5,15 +5,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-/**
- *
- * @author erso
- */
 public class SpeciesClient {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
         try (Socket clientSocket = new Socket("localhost", 3333);
@@ -22,6 +14,7 @@ public class SpeciesClient {
 
             // Start massage from server:
             System.out.println(inputStream.nextLine());
+
             // Read a line from the keyboard:
             outputStream.writeObject(new Species("Human", 7700000, 1.09));
 

@@ -2,6 +2,8 @@ package vop;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -10,15 +12,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-//--------------------------------- VIRKER KUN I EN DIRECTORY UDEN SPACES OG SPECIELLE TEGN ---------------------------
-
 public class DanishIslandFileReader {
 
     private File inFile;
     private List<DanishIsland> islandList;
 
-
-    public DanishIslandFileReader(String fName) {
+    public DanishIslandFileReader(URI fName) {
         inFile = new File(fName);
     }
 
@@ -57,10 +56,10 @@ public class DanishIslandFileReader {
         return islandList;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException {
         System.out.println(DanishIslandFileReader.class.getClassLoader().getResource("Islands_komma.txt"));
         URL file = DanishIslandFileReader.class.getClassLoader().getResource("Islands_komma.txt");
-        DanishIslandFileReader fr = new DanishIslandFileReader(file.getFile());
+        DanishIslandFileReader fr = new DanishIslandFileReader(file.toURI());
         fr.readFile();
 
         System.out.println("Result:\n" + fr.getList());

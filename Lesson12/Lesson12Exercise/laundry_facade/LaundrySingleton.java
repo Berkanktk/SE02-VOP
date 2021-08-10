@@ -8,20 +8,21 @@ import java.util.Arrays;
  * Kun mekanismerne der gør klassen til en singleton-klasse mangler at blive implementeret.
  * @author erso
  */
-public class LaundrySingleton implements LaundryConstants
-{
+
+public class LaundrySingleton implements LaundryConstants {
+    private static final LaundrySingleton singleInstance = new LaundrySingleton();
+
 // Her implementeres constructor mm. så det bliver en singleton-klasse:
-    public static LaundrySingleton getInstance(){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private LaundrySingleton(){
+
     }
 
+    public static LaundrySingleton getInstance(){
+        return singleInstance;
+    }
 
-    
-    
-    
 // Resten er udleveret kode:   
     private LaundryMachine[] laundryMachines;
-
 
     @Override
     public String toString()
@@ -52,7 +53,6 @@ public class LaundrySingleton implements LaundryConstants
             return lm.getProgName(prog);
         }
         return "Maskine findes ikke!";
-        
     }
     
     // Hjælpe metode, som 'bygger' et vaskeri med 2 vaskemaskiner og 1 tørretumbler.
@@ -85,15 +85,9 @@ public class LaundrySingleton implements LaundryConstants
         t.setPrice(TUMBLE_PRICE);
         
         laundryMachines[2] = t;
-    
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args)
-    {
-       
+    public static void main(String[] args) {
         LaundrySingleton.getInstance().buildLaundry();
         
         System.out.println("Laundry:\n"+LaundrySingleton.getInstance());
@@ -109,7 +103,5 @@ public class LaundrySingleton implements LaundryConstants
         System.out.println("\n" + LaundrySingleton.getInstance().getMachine(2).getModel() +":");
         System.out.print (LaundrySingleton.getInstance().getProgName(2, 5) + "\t");
         System.out.println(String.format("%.2f", LaundrySingleton.getInstance().getPrice(2, 5)));
-
     }
-    
 }

@@ -3,11 +3,9 @@ package vop;
 import java.io.File;
 import java.util.Scanner;
 
-/**
- * @author erso
- */
-public class FindFilesRecursive {
+//Does only work in the "vop-øvelser" folder
 
+public class FindFilesRecursive {
     private int noDirs;
     private int noFiles;
 
@@ -15,6 +13,7 @@ public class FindFilesRecursive {
         if (file.isDirectory()) {
             noDirs++;
             File[] files = file.listFiles(); // All files and subdirectories
+            assert files != null;
             for (File f : files) {
                 findFiles(f);
             }
@@ -24,15 +23,11 @@ public class FindFilesRecursive {
         }
     }
 
-
     @Override
     public String toString() {
         return "FindFilesRecursive{" + "noDirs=" + noDirs + ", noFiles=" + noFiles + '}';
     }
-
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         // Prompt the user to enter a directory or a file
         System.out.print("Enter a directory or a file: ");
@@ -44,6 +39,4 @@ public class FindFilesRecursive {
         ffr.findFiles(startDir);
         System.out.println("\n*************\n" + ffr);
     }
-
-
 }

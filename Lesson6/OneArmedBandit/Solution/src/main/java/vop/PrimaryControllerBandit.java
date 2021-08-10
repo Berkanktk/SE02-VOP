@@ -1,6 +1,5 @@
 package vop;
 
-
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,27 +9,17 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PrimaryController implements Initializable {
+public class PrimaryControllerBandit implements Initializable {
     @FXML
-    private ImageView spin1;
-    @FXML
-    private ImageView spin2;
-    @FXML
-    private ImageView spin3;
-    @FXML
-    private Button startSpinnersButton;
+    private ImageView spin1, spin2, spin3;
 
     @FXML
-    private Button stopSpinButton_1;
-    @FXML
-    private Button stopSpinButton_2;
-    @FXML
-    private Button stopSpinButton_3;
+    private Button stopSpinButton_1, stopSpinButton_2, stopSpinButton_3, startSpinnersButton;
+
     @FXML
     private Label winningLabel;
 
@@ -71,6 +60,7 @@ public class PrimaryController implements Initializable {
 
         } else if (event.getSource() == stopSpinButton_2) {
             t2.interrupt();
+            stopSpinButton_2.setDisable(true);
 
         } else if (event.getSource() == stopSpinButton_3) {
             t3.interrupt();
@@ -84,10 +74,11 @@ public class PrimaryController implements Initializable {
         } else {
             spinsAlive--;
         }
-
         System.out.println("Alive: " + spinsAlive);
+
         if (spinsAlive == 0) {
             startSpinnersButton.setDisable(false);
+
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -99,7 +90,6 @@ public class PrimaryController implements Initializable {
                         winningLabel.setText("2 equals! Congratulations");
                     } else {
                         winningLabel.setText("You are a LOSER!");
-
                     }
                 }
             });
@@ -109,16 +99,19 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         images = new Image[10];
-        String pre = "fruits";
+        String pre = "images/fruits";
         String post = ".png";
+
         for (int i = 0; i < images.length; i++) {
             String filename = pre  + i + post;
             String file = null;
+
             try {
                 file = getClass().getResource(filename).toURI().toString();
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
+            assert file != null;
             images[i] = new Image(file);
         }
         spin1.setImage(images[1]);
@@ -127,7 +120,6 @@ public class PrimaryController implements Initializable {
     }
 
     public class BanditRunnable implements Runnable {
-
         private int i;
         private long sleepTime;
         private boolean running;

@@ -1,15 +1,11 @@
 package vop;
 
-/**
- *
- * @author erso
- */
 public class IterativeBinarySearch {
     public static int find(int[] numbers, int target) {
         int min = 0, max = numbers.length-1;
 
         while (min <= max) {
-            int pos = (min+max) / 2;
+            int pos = (min + max) / 2;
             if (numbers[pos] == target) {
                 return pos;
             }

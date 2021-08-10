@@ -5,44 +5,37 @@ package laundry_facade;
  *
  * @author erso
  */
-public class TumbleDryer implements LaundryMachine
-{
+public class TumbleDryer implements LaundryMachine, LaundryConstants {
 
     private double pricePerMinute;
     private String model;
     
-    public TumbleDryer(String model)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public TumbleDryer(String model) {
+        this.model = model;
     }
 
-    public void setPrice(double pricePerMinute)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getModel()
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setPrice(double pricePerMinute) {
+        this.pricePerMinute = pricePerMinute;
     }
 
     @Override
-    public double getPrice(int prog)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getModel() {
+        return model;
     }
 
     @Override
-    public String getProgName(int prog)
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double getPrice(int prog) {
+        double total = prog * pricePerMinute;
+        return total;
     }
 
     @Override
-    public String toString()
-    {
+    public String getProgName(int prog) {
+        return "Tørring i " + prog + " minutter";
+    }
+
+    @Override
+    public String toString() {
         return getModel() + " Minutpris: " + pricePerMinute + "\n";
     }
-
 }

@@ -18,9 +18,6 @@ import java.util.logging.Logger;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-/**
- * @author fsan
- */
 public class FacadeWithCallbackTest {
 
     FacadeWithCallback facade;
@@ -69,7 +66,6 @@ public class FacadeWithCallbackTest {
 
     @Test
     public void testRun() {
-
         dice = facade.getDice();
         while (!dice.equalsMax()) {
             try {
@@ -78,9 +74,7 @@ public class FacadeWithCallbackTest {
             Logger.getLogger(FacadeWithCallbackTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
         assertEquals(6, dice.getDie1());
         assertEquals(6, dice.getDie2());
     }
-
 }

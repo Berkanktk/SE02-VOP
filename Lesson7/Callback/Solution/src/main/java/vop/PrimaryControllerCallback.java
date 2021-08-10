@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PrimaryController implements Initializable, CallBackInterface {
+public class PrimaryControllerCallback implements Initializable, CallBackInterface {
 
     @FXML
     private TextArea textArea;
@@ -33,7 +33,6 @@ public class PrimaryController implements Initializable, CallBackInterface {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         startButton.setDisable(false);
         stopButton.setDisable(true);
     }
@@ -41,12 +40,12 @@ public class PrimaryController implements Initializable, CallBackInterface {
     @FXML
     private void buttonAction(ActionEvent event) throws URISyntaxException {
         if (event.getSource() == startButton) {
-            facade = new FacadeWithCallback(this);
-            facade.start();
-            startButton.setDisable(true);
-            stopButton.setDisable(false);
+            facade = new FacadeWithCallback(this); //Creates a new instance of FacadeWithCallBack and passes PrimaryController as a parameter.
+            facade.start(); //Starts the new instance of the FacadeWithCallBack thread
+            startButton.setDisable(true); //Disables the startButton
+            stopButton.setDisable(false); //Enables the stopButton
         } else {
-            facade.interrupt();
+            facade.interrupt(); //Calls Interrupt() on the FacadeWithCallBack instance
             startButton.setDisable(false);
             stopButton.setDisable(true);
         }
@@ -74,8 +73,5 @@ public class PrimaryController implements Initializable, CallBackInterface {
                 die2view.setImage(new Image(i2.toURI().toString()));
             }
         });
-
     }
-
-
 }

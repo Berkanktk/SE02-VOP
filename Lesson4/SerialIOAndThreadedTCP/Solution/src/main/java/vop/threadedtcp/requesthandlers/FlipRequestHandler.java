@@ -1,6 +1,5 @@
 package vop.threadedtcp.requesthandlers;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -8,19 +7,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author erso
- */
 public class FlipRequestHandler extends AbstractRequestHandler {
-
-    
 
     public FlipRequestHandler(Socket socket) {
         super(socket);
     }
-    
-   
+
     @Override
     public void run() {
         System.out.println("RequestHandler started for " + socket.getPort());
@@ -39,8 +31,7 @@ public class FlipRequestHandler extends AbstractRequestHandler {
             System.out.println("RequestHandler DONE!!!!");
         } catch (IOException ex) {
             Logger.getLogger(FlipRequestHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
+        }
     }
 
     public String flipUpperLower(String originalString) {
@@ -54,9 +45,6 @@ public class FlipRequestHandler extends AbstractRequestHandler {
                 flipped += originalString.charAt(i);
             }
         }
-
         return flipped;
     }
-
-
 }

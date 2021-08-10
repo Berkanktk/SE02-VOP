@@ -11,10 +11,6 @@ import java.io.FilenameFilter;
  import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author erso
- */
 public class FacadeWithCallback extends Thread {
 
     private CallBackInterface callBack;
@@ -34,9 +30,7 @@ public class FacadeWithCallback extends Thread {
     }
 
     private File[] loadPictures() {
-
         System.out.println("Pics: " + pathToPics.getAbsolutePath());
-// Study the FileNameFilter. Don't think you have seen that before....
         File[] pictures = pathToPics.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
@@ -51,8 +45,7 @@ public class FacadeWithCallback extends Thread {
     private File getPic(int index) {
         return pictures[index];
     }
-    
-   
+
     public Dice getDice(){
         return dice;
     }
@@ -77,7 +70,6 @@ public class FacadeWithCallback extends Thread {
         }
         callBack.updateMessage("Over And Out...,");
     }
-    
 
     public static void main(String[] arg) {
         CallBackInterface soutCallBack = new CallBackInterface() {
@@ -98,7 +90,5 @@ public class FacadeWithCallback extends Thread {
         } catch (InterruptedException ex) {
             Logger.getLogger(FacadeWithCallback.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
 }

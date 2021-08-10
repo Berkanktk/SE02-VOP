@@ -12,22 +12,16 @@ import javafx.scene.control.ToggleGroup;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PrimaryController implements Initializable {
+public class PrimaryControllerNovel implements Initializable {
 
     @FXML
     private Label funLabel;
     @FXML
-    private Button startButton;
+    private Button startButton, stopButton;
     @FXML
-    private Button stopButton;
-    @FXML
-    private RadioButton radio100;
+    private RadioButton radio100, radio200, radio400;
     @FXML
     private ToggleGroup radioGroup;
-    @FXML
-    private RadioButton radio200;
-    @FXML
-    private RadioButton radio400;
 
     private String text;
     private Thread thread;
@@ -45,7 +39,6 @@ public class PrimaryController implements Initializable {
             public void run() {
                 while (true) {
                     try {
-
                         if (funLabel.getText().trim().length() == 0) {
                             text = "Programming is fun";
                         } else {
@@ -70,7 +63,6 @@ public class PrimaryController implements Initializable {
         });
         thread.setDaemon(true);
         thread.start();
-
     }
 
     @FXML

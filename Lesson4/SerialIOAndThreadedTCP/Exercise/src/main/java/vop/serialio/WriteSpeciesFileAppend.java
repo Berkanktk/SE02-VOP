@@ -19,7 +19,6 @@ package vop.serialio;
 import java.io.*;
 import java.util.*;
 
-
 public class WriteSpeciesFileAppend {
 
     public static void main(String[] args) {
@@ -27,14 +26,14 @@ public class WriteSpeciesFileAppend {
         File file = new File(fileName);
 
         try (ObjectOutputStream outputStream =
-                     file.exists() ?
-                             new ObjectOutputStream(new FileOutputStream(file, true)) {
-                                 @Override
-                                 protected void writeStreamHeader() throws IOException {
-                                     super.reset();
-                                 }
-                             }
-                             : new ObjectOutputStream(new FileOutputStream(file, true));)
+             file.exists() ?
+                 new ObjectOutputStream(new FileOutputStream(file, true)) {
+                     @Override
+                     protected void writeStreamHeader() throws IOException {
+                         super.reset();
+                     }
+                 }
+                 : new ObjectOutputStream(new FileOutputStream(file, true));)
         {
             Species califCondor
                     = new Species("Calif. Condor", 27, 0.02);
@@ -75,7 +74,6 @@ public class WriteSpeciesFileAppend {
         } catch (ClassNotFoundException ex) {
             System.err.println(ex);
         }
-
     }
 
     private static String getFileName(String prompt) {

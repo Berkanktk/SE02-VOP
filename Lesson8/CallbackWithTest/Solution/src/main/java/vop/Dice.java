@@ -6,10 +6,6 @@ package vop;/*
 
 import java.util.Random;
 
-/**
- *
- * @author erso
- */
 public class Dice {
     private static Random generator = new Random();
     private static final int MAX = 6;

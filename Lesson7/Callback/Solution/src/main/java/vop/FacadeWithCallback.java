@@ -12,9 +12,6 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * @author erso
- */
 public class FacadeWithCallback extends Thread {
 
     private CallBackInterface callBack;
@@ -22,7 +19,7 @@ public class FacadeWithCallback extends Thread {
     private File[] pictures;
 
     public FacadeWithCallback(CallBackInterface callBack) throws URISyntaxException {
-        this(callBack,  FacadeWithCallback.class.getResource("").toURI().getPath());
+        this(callBack, FacadeWithCallback.class.getResource("").toURI().getPath());
     }
 
     public FacadeWithCallback(CallBackInterface callBack, String pathToPics) {
@@ -32,7 +29,6 @@ public class FacadeWithCallback extends Thread {
     }
 
     private File[] loadPictures() {
-
         System.out.println("Pics: " + pathToPics.getAbsolutePath());
 
         File[] pictures = pathToPics.listFiles(new FilenameFilter() {
@@ -54,6 +50,7 @@ public class FacadeWithCallback extends Thread {
         System.out.println("RUNNING");
         int d1 = 0;
         int d2 = 0;
+
         try {
             Dice dice = new Dice();
             while (!dice.equalsMax()) {
@@ -87,14 +84,11 @@ public class FacadeWithCallback extends Thread {
         };
 
         FacadeWithCallback facade = new FacadeWithCallback(soutCallBack, FacadeWithCallback.class.getResource("").toURI().getPath());
-
         facade.start();
         try {
             facade.join();
         } catch (InterruptedException ex) {
             Logger.getLogger(FacadeWithCallback.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
 }

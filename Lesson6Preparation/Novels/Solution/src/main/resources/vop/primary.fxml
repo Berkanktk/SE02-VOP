@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vop.PrimaryController2">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vop.PrimaryControllerNovel">
     <Label fx:id="funLabel" layoutX="2.0" layoutY="20.0" prefHeight="50.0" prefWidth="306.0" text="Welcome">
         <font>
             <Font name="System Bold Italic" size="24.0" />

@@ -9,6 +9,5 @@ public class PCFixed {
         new Consumer(buffer, 0);
         new Consumer(buffer, 1);
         new Consumer(buffer, 2);
-
     }
 }

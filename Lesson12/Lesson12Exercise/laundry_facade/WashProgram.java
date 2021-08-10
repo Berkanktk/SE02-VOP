@@ -6,32 +6,26 @@ package laundry_facade;
  *  Klasse som repræsenterer et enkelt vaskeprogram
  * @author erso
  */
-public class WashProgram
-{
+public class WashProgram {
 
     private String name;
     private double price;
 
-    public WashProgram(String name, double price)
-    {
+    public WashProgram(String name, double price) {
         this.name = name;
         this.price = price;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public double getPrice()
-    {
+    public double getPrice() {
         return price;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return name + ": " + price + "\n";
     }
-
 }

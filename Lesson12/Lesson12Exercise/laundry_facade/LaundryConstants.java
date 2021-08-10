@@ -5,8 +5,7 @@ package laundry_facade;
  * Definitioner til brug for et test-vaskeri
  * @author erso
  */
-public interface LaundryConstants
-{
+public interface LaundryConstants {
 
     // Machine Models:
     String WACH_6 = "6 kg Vask";
@@ -48,5 +47,4 @@ public interface LaundryConstants
         WASH_PROGRAM_6,
         WASH_PROGRAM_7,
     };
-
 }

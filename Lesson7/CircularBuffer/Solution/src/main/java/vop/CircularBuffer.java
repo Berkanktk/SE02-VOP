@@ -25,8 +25,8 @@ public class CircularBuffer {
         }
         int value = buffer[getIndex];
         buffer[getIndex] = null;
-        System.out.println(Thread.currentThread().getName()+"\tGot: " + getIndex + ": " + value);
-        getIndex = (getIndex+1) % size;
+        System.out.println(Thread.currentThread().getName()+ "\tGot: " + getIndex + ": " + value);
+        getIndex = (getIndex + 1) % size;
         notifyAll();
         return value;
     }
@@ -42,10 +42,9 @@ public class CircularBuffer {
         }
         buffer[putIndex] = n;
         System.out.println(Thread.currentThread().getName()+" Put: " + putIndex+ ": " +n);
-        putIndex = (putIndex+1) %size;
+        putIndex = (putIndex+1) % size;
         notifyAll();
     }
-
 
     public String toString() {
         return "Buff: " + Arrays.toString(buffer);

@@ -8,10 +8,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author erso
- */
+
 public class ObjectRequestHandler extends AbstractRequestHandler{
 
     public ObjectRequestHandler(Socket socket) {
@@ -24,16 +21,12 @@ public class ObjectRequestHandler extends AbstractRequestHandler{
         try (ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
                 PrintWriter writer = new PrintWriter(socket.getOutputStream(), true)) {
             writer.println("Server ready. Send your Serialized object:");
-
                 System.out.println("Received: " + ois.readObject());
-                
 
         } catch (IOException ex) {
             Logger.getLogger(FlipRequestHandler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ObjectRequestHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
+        }
     }
- 
 }

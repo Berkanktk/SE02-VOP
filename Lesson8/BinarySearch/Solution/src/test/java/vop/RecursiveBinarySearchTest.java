@@ -1,9 +1,7 @@
 package vop;
 
 import org.junit.*;
-
 import java.util.Arrays;
-
 import static org.junit.Assert.*;
 
 public class RecursiveBinarySearchTest {

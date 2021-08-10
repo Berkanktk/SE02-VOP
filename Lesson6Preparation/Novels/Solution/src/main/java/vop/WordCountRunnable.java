@@ -18,10 +18,10 @@ public class WordCountRunnable implements Runnable {
         filename = aFilename;
     }
 
-
     public void run() {
         int count = 0;
         String file = "";
+
         try {
             file = getClass().getResource(filename).toURI().getPath();
         } catch (URISyntaxException e) {

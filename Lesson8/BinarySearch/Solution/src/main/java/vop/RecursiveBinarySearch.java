@@ -1,10 +1,5 @@
 package vop;
 
-/**
- * Listing 18.6 Liang
- *
- * @author erso
- */
 public class RecursiveBinarySearch {
 
     public static int recursiveFind(int[] list, int key) {

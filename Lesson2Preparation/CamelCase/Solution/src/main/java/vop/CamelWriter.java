@@ -4,18 +4,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-//--------------------------------- VIRKER KUN I EN DIRECTORY UDEN SPACES OG SPECIELLE TEGN ---------------------------
 
 public class CamelWriter {
 
     private File inFile;
 
-    public CamelWriter(String fName) {
-        inFile = new File(getClass().getClassLoader().getResource(fName).getFile());
+    public CamelWriter(String fName) throws URISyntaxException {
+        inFile = new File(getClass().getClassLoader().getResource(fName).toURI());
         System.out.println(inFile.getName());
     }
 
@@ -53,7 +52,7 @@ public class CamelWriter {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException {
         String fName = "MaryAnn.txt";
         CamelWriter cw = new CamelWriter(fName);
         cw.readLines();
